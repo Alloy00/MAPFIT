@@ -17,3 +17,19 @@ O Mapfit é um aplicativo que tem como objetivo apresentar locais no município 
 - MongoDB: Banco de dados utilizado para armazenar informações sobre os locais
 - Node.js: Plataforma de desenvolvimento backend utilizada para criar a API do aplicativo
 
+## Como usar
+
+1. Certifique-se de ter o Node.js instalado em sua máquina.
+2. Faça o clone do repositório do Mapfit: `git clone <URL_DO_REPOSITÓRIO>`
+3. Navegue até o diretório do projeto: `cd mapfit`
+4. Instale as dependências do projeto: `npm install`
+5. Configuração do banco de dados MongoDB:
+   - Crie um banco de dados no MongoDB
+   - Configure as informações de conexão no arquivo de configuração `server/config/database.js`
+6. Inicialize o servidor backend:
+   - Navegue até o diretório do servidor: `cd server`
+   - Inicie o servidor: `npm start`
+7. Inicialize o aplicativo móvel:
+   - Navegue até o diretório do aplicativo móvel: `cd mobile`
+   - Inicie o aplicativo: `expo start`
+
