@@ -171,17 +171,16 @@ const Map = () => {
     setSearchResults(filteredResults.slice(0, maxSuggestions)); // Limitar o número de sugestões exibidas
   };
 
-  const selectLocation = location => {
+  const selectLocation = (location) => {
     setSelectedLocation(location);
     const latitude = parseFloat(location.latitude);
     const longitude = parseFloat(location.longitude);
     map.setView([latitude, longitude], 15);
-    // Verifica se o marcador possui um popup
-  if (location.popup) {
-    // Abre o popup do marcador selecionado
-    location.popup.openPopup();
-  }
-};
+    if (location.popup) {
+      location.popup.openPopup();
+    }
+    setSearchTerm(''); // Limpa o campo de input após selecionar um local
+  };
 
 
   return (
@@ -192,19 +191,19 @@ const Map = () => {
           className="search-input"
           placeholder="Pesquisar locais"
           value={searchTerm}
-          onChange={e => searchLocations(e.target.value)}
+          onChange={(e) => searchLocations(e.target.value)}
         />
         {searchTerm.length > 0 && searchResults.length > 0 && (
-        <ul className={`search-results${searchResults.length === 1 ? ' single-result' : ''}`}>
-          {searchResults.map(location => (
-            <li key={location.id} onClick={() => selectLocation(location)}>
-              {location.name}
-            </li>
-          ))}
-        </ul>
-      )}
+          <ul className={`search-results${searchResults.length === 1 ? ' single-result' : ''}`}>
+            {searchResults.map((location) => (
+              <li key={location.id} onClick={() => selectLocation(location)}>
+                {location.name}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-      <div id="map"  style={{ height: '100vh', width: '100vw' }}></div>
+      <div id="map" style={{ height: '100vh', width: '100vw' }}></div>
     </div>
   );
 };

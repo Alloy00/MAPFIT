@@ -8,6 +8,8 @@ import Faq from './components/FaqScreen';
 import Personal from './components/personal';
 import CadastroPersonal from './components/CadastroPersonal';
 import Login from './components/login';
+import Esportes from './components/EsportesScreen';
+import Locais from './components/locais';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -73,6 +75,28 @@ const App = () => {
           component={() => (
             <View style={{ flex: 1 }} scrollEnabled={false}>
               <Login />
+            </View>
+          )}
+          options={{
+            headerTitle: props => <CustomHeader {...props} />,
+          }}
+        />
+        <Drawer.Screen
+          name="Esportes"
+          component={() => (
+            <View style={{ flex: 1 }} scrollEnabled={false}>
+              <Esportes />
+            </View>
+          )}
+          options={{
+            headerTitle: props => <CustomHeader {...props} />,
+          }}
+        />
+        <Drawer.Screen
+          name="Locais"
+          component={() => (
+            <View style={{ flex: 1 }} scrollEnabled={false}>
+              <Locais />
             </View>
           )}
           options={{
